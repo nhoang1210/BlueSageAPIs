@@ -1,0 +1,591 @@
+#%RAML 1.0 DataType
+displayName: DMI mortgage record
+type: object
+properties:
+  loanNbr:
+    type: number
+    example: 1234567890
+    required: false
+  lenderLoanNbr:
+    type: number
+    example: 1234567890
+    required: false
+  investor:
+    type: !include exchange_modules/4ae12e6d-6b32-42fc-ba98-5e4209c9ac64/datatype-dmi-investor/1.0.0/datatype-dmi-investor.raml
+    example: !include exchange_modules/4ae12e6d-6b32-42fc-ba98-5e4209c9ac64/example-dmi-investor/1.0.0/example-dmi-investor.raml 
+    required: false
+  loanPurpose:
+    type: !include exchange_modules/4ae12e6d-6b32-42fc-ba98-5e4209c9ac64/datatype-dmi-loanpurpose/1.0.0/datatype-dmi-loanpurpose.raml
+    example: !include exchange_modules/4ae12e6d-6b32-42fc-ba98-5e4209c9ac64/example-dmi-loanpurpose/1.0.0/example-dmi-loanpurpose.raml
+    required: false
+  property:
+      type: !include exchange_modules/4ae12e6d-6b32-42fc-ba98-5e4209c9ac64/datatype-dmi-property/1.0.0/datatype-dmi-property.raml
+      example: !include exchange_modules/4ae12e6d-6b32-42fc-ba98-5e4209c9ac64/example-dmi-property/1.0.0/example-dmi-property.raml
+      required: false
+  specPropType:
+    type: string
+    example: BLA
+    required: false
+  loanFeatures:
+    type: object
+    required: false
+    properties:
+      hiType: integer
+      loType: integer
+      maturityDte: date-only
+      nextdueDte: date-only
+      mthlyPmtPI: number
+      intOnlyInd: number 
+  mortgagor:
+    type: object
+    required: false
+    properties:
+      firstName: string
+      middleName: string
+      lastName: string
+	  suffix: string
+      ssn: number
+      birthDte: date
+  coMortgagor:
+    type: object
+    required: false
+    properties:
+      firstName: string
+      middleName: string
+      lastName: string
+	  suffix: string
+      ssn: number
+      birthDte: date
+  primaryPhone:
+    type: number
+    example: 1234567890
+    required: false
+  primaryPhoneSrcCde:
+    type: string
+    example: H
+    required: false
+  secondPhone:
+    type: number
+    example: 1234567890
+    required: false
+  secondPhoneSrcCde:
+    type: string
+    example: H
+    required: false
+  mortgagorEmail:
+    type: string
+    example: mortgagor@email.com
+    required: false
+  coMortgagorEmail:
+    type: string
+    example: comortgagor@email.com
+    required: false
+  billing:
+    type: object
+    required: false
+    properties:
+      streetAddress: string
+      streetAddress2: string
+      city: string
+      state: string
+      postalCode: number
+  foreignAddressIndicator:
+    type: integer
+    example: 1
+    required: false
+  occupancyCode:
+    type: integer
+    example: 1
+    required: false
+  mortgageTerms:
+    type: object
+    required: false
+    properties:
+      noteRate: number
+      principalBal: number
+      originalLoanAmt: number
+      loanTerm: number
+  loanDetails:
+    type: object
+    required: false
+    properties:
+      closingDte: date-only
+      fundbyDte: date-only
+  noteDte:
+    type: date-only
+    example: 2010-01-01
+    required: false
+  paymentFreq:
+    type: integer
+    example: 1
+    required: false
+  amortMethod:
+    type: integer
+    example: 1
+    required: false
+  mthlyPmtCntyTax:
+    type: number
+    example: 100.5
+    required: false
+  mthlyPmtCityTax:
+    type: number
+    example: 100.50
+    required: false
+  mthlyPmtHazard:
+    type: number
+    example: 100.50
+    required: false
+  mthlyPmtPMI:
+    type: number
+    example: 100.50
+    required: false
+  mthlyPmtOthr:
+    type: number
+    example: 100.50
+    required: false
+  proposedHousingExp:
+    type: object
+    required: false
+    properties:
+      totalMthlyPmtAmt: number
+  initEscrow:
+    type: number
+    example: 100.50
+    required: false
+  interimInterest:
+    type: object
+    required: false
+    properties:
+      intAtClosing: number
+  ptsPaidByBorrowerAtClosing:
+    type: number
+    example: 100.50
+    required: false
+  nxtAppTaxDueDte:
+    type: date-only
+    example: 2010-01-01
+    required: false
+  transactionDetail:
+    type: object
+    required: false
+    properties:
+      purchasePriceAmt: number
+  transmittalData:
+    type: object
+    required: false
+    properties:
+      propertyAppraisedValAmt: number
+  appraisalDte:
+    type: date-only
+    example: 2010-01-01
+    required: false
+  employeeCode:
+    type: string
+    example: Y
+    required: false
+  lateCharge:
+    type: object
+    required: false
+    properties:
+      type: string
+      factor: number
+      graceDays: integer
+  mortgageBroker:
+    type: object
+    required: false
+    properties:
+      liscenseNbrID: string
+  lenderBranch:
+    type: object
+    required: false
+    properties:
+      id: string
+  prodTaxOptCde:
+    type: string
+	example: IR
+	required: false 
+  stateTaxOptCde:
+    type: string
+	example: S
+	required: false 
+  maCertainMtgLoanCde:
+    type: string
+	example: Y
+	required: false 
+  specialTaxAssessment:
+    type: string
+    example: H
+    required: false
+  multipleStructures:
+    type: integer
+    example: 1
+    required: false
+  debtToIncomeRatio:
+    type: number
+    example: 0.25
+    required: false
+  classCode:
+    type: string
+    example: CC
+    required: false
+  eNotesSvcId:
+    type: string
+	example: E
+	required: false 
+  miData:
+    type: object
+    required: false
+    properties:
+      miCompanyName: string
+      cancellationDte: date-only
+      terminationDte: date-only
+      midpointDte: date-only
+      fhaProgramType: number
+      miDistbrmntTerm: number
+      miPrmPmtType: number
+      miDistbrmntAmt: number
+      miNxtPrmDueDte: date-only
+      miCertId: number
+      miPremCalcRte: number 
+      miCvrgPrcnt: number
+      miUpfrntPremAmt: number
+  hazardInsuranceData:
+    type: object
+    required: false
+    properties:
+      hzrdInsTypCde: number
+	  hzrdInspayeeCde: number
+	  hzrdInsAgntCde: number
+      hzrdInsExpDte: date-only
+      hzrdInsPremAmt: number
+      hzrdInsCvrgAmt: number
+      hzrdInsTerm: number
+      hzrdInsTypPmt: number
+      hzrdInsTypCvrg: string
+      hzrdInsPolcyNbr: number
+      fldInsTypCde: number
+	  fldInspayeeCde: number
+	  fldInsAgntCde: number
+      fldInsExpDte: date-only
+      fldInsPremAmt: number
+      fldInsCvrgAmt: number
+      fldInsTerm: number
+      fldInsTypPmt: number
+      fldInsTypCvrg: string
+      fldInsPolcyNbr: number
+      windInsTypCde: number
+	  windInspayeeCde: number
+	  windInsAgntCde: number
+      windInsExpDte: date-only
+      windInsPremAmt: number
+      windInsCvrgAmt: number
+      windInsTerm: number
+      windInsTypPmt: number
+      windInsTypCvrg: string
+      windInsPolcyNbr: number
+      erthqkeInsTypCde: number
+	  erthqkeInspayeeCde: number
+	  erthqkeInsAgntCde: number
+      erthqkeInsExpDte: date-only
+      erthqkeInsPremAmt: number
+      erthqkeInsCvrgAmt: number
+      erthqkeInsTerm: number
+      erthqkeInsTypPmt: number
+      erthqkeInsTypCvrg: string
+      erthqkeInsPolcyNbr: number
+      condoInsTypCde: number
+	  condoInspayeeCde: number
+	  condoInsAgntCde: number
+      condoInsExpDte: date-only
+      condoInsPremAmt: number
+      condoInsCvrgAmt: number
+      condoInsTerm: number
+      condoInsTypPmt: number
+      condoInsTypCvrg: string
+      condoInsPolcyNbr: number
+  nfipData:
+    type: object
+    required: false
+    properties:
+      fldContractType: string
+      fldProgram: string
+      nfipFldDteRevType: string
+      nfipCommntyId: number
+      nfipMapId: number
+      nfipMapPanelDte: date-only
+      fldZone: number
+      partialZoneInd: string
+      fldCertProviderName: string
+      determinationDte: date-only
+      certNbr: number 
+  armData:
+    type: object
+    required: false
+    properties:
+      armPlanId: string
+      origIndxRte: number
+      origIrChgDte: date-only
+      origPIChgDte: date-only
+      margin: number
+	  initIntRteInc: number
+	  initIntRteDec: number
+	  subPerChgInc: number
+	  subPerChgDec: number 
+      ceilingRte: number
+      floorRte: number
+      irRndingType: string
+      irRndingBasis: number 
+  cnvrtData:
+    type: object
+    required: false
+    properties:
+      cnvrtType: string
+      cnvrtPeriod: number
+      origCnvrtDte: date-only
+      lstCnvrtDte: date-only
+      cnvrtMargin: number
+	  cnvrtblRndingType: number
+	  cnvrtblRndingBasis: number
+	  conversionFee: number
+  balloonInd:
+    type: string
+	example: B
+	required: false 
+  balloonActDte:
+    type: date-only
+	example: 2010-01-01
+	required: false 
+  elocData:
+    type: object
+    required: false
+    properties:
+      elocPlanCde: integer
+      elocMaxLifeIr: number
+      elocMinLifeIr: number
+      elocMaxPerChgIr: number
+      elocRoutingNbr: number
+	  elocAcctNbr: number
+	  elocBnkPrefix: number
+	  elocCreditLineAmt: number
+	  elocDrwPeriodExpDte: date-only
+	  elocIntRateMgn: number 
+  prilData:
+    type: object
+    required: false
+    properties:
+      prilPrimeRteCde: integer
+      prilMinIntRte: number
+      prilMaxIntRte: number
+      prilPymtAdjInd: integer
+      prilRndingCde: integer
+	  prilIntCalc: integer
+	  prilPrcntMinus: number
+	  prilPrcntIncrmnt: number
+	  prilPrcntPrime: number
+  fasbData:
+    type: object
+    required: false
+    properties:
+      origFees1: number
+      origFees2: number
+      origFees3: number
+      origFees4: number
+	  origFees5: number
+      unamortFees1: number
+      unamortFees2: number
+      unamortFees3: number
+      unamortFees4: number
+	  unamortFees5: number
+      origLoanDiscnt: number
+      discntBal: number
+      amortNbrOfMths: number
+  dsiData:
+    type: object
+    required: false
+    properties:
+      dsiIntCalcOpt: string
+      dsi360/365factor: integer
+      dsiPrevPaidThruDte: date-only
+      dsiIntDue: number
+	  dsiAltDueDte: date-only
+      dsiPymntOpt: string
+  intOnlyEndDte:
+    type: date-only
+    example: 2010-01-01
+    required: false
+  fhlbbData:
+    type: object
+    required: false
+    properties:
+      fhlbbPldgLoanCde: integer
+      fhlbbPldgType: integer
+      fhlbbPldgClass: integer
+      fhlbbPldgIndx: number
+	  fhlbbCustCde: integer
+  psaData:
+    type: object
+    required: false
+    properties:
+      psaSubPeriodMths: integer
+      psaFrstSubDte: date-only
+      psaSubInd: integer
+      psaPeriod1: number
+	  psaPeriod2: number
+	  psaPeriod3: number
+	  psaPeriod4: number
+	  psaPeriod5: number
+	  psaSubBal: number
+  pgyBckData:
+    type: object
+    required: false
+    properties:
+      pgyBckInvstr: number
+      pgyBckInvstrCat: number
+      pgyBckAnulIntRte: number
+      pgyBckDistrType: number
+      pgyBckHiType: number
+      pgyBckLoType: number
+      pgyBckInvstrLoanNbr: number
+      pgyBckLoanTerm: number
+      pgyBckOrigMtgAmt: number
+      pgyBckPrinBal: number
+      pgyBckPI: number 
+  draftSetUp:
+    type: object
+    required: false
+    properties:
+      draftEffDte: date-only
+      draftBnkTrnsitNbr: number
+      draftIndAcctNbr: number
+      draftIndAcctName: string
+      draftDelayDays: number
+      draftAcctType: number
+      draftAddPrinAmt: number
+  credQual:
+    type: number
+    example: 1
+    required: false
+  coBorrowerCredQual:
+    type: number
+    example: 1
+    required: false
+  fhaNbr:
+    type: number
+    example: 1
+    required: false
+  fhaCoinsId:
+    type: string
+    example: FHACOINS
+    required: false
+  vaLoanNbr:
+    type: number
+    example: 1
+    required: false
+  mblHomeVin:
+    type: string
+    example: 1
+    required: false
+  rhsGuarantyNbr:
+    type: string
+    example: 1
+    required: false
+  rhsBorrowerId:
+    type: integer
+    example: 1
+    required: false
+  txCshOutInd:
+    type: string
+    example: TX5
+    required: false
+  mersData:
+    type: object
+    required: false
+    properties:
+      mersMtgIdNbr: number
+      mersRegDte: date-only
+      mersRegFlg: string
+      mersOrgMtgeeInd: string
+      mersOrgId: number
+      fipsCntyCde: number
+  cfpbData:
+    type: object
+    required: false
+    properties:
+      cfpbHighCstType: string
+      cfpbHighPriceType: string
+      cfpbQualMtgCde: string
+      cfpbAbleToRepayType: string
+      cfpbEscrowWaiverCde: number
+      cfpbEscrowWaiverDte: date-only
+      cfpbPrePayPenInd: string
+      cfpbPrePayPenVerb: number
+      cfpbPrePayPenExpDte: date-only
+  coBorrower3:
+    type: object
+    required: false
+    properties:
+      firstName: string
+      middleName: string
+      lastName: string
+      ssn: number
+      birthDte: date
+      address: string
+      city: string
+      state: string
+      postalCode: number
+      phoneNbr: number
+  coBorrower4:
+    type: object
+    required: false
+    properties:
+      firstName: string
+      middleName: string
+      lastName: string
+      ssn: number
+      birthDte: date
+      address: string
+      city: string
+      state: string
+      postalCode: number
+      phoneNbr: number
+  ytdData:
+    type: object
+    required: false
+    properties:
+      ytdNsfFees: number
+      ytdIntPaid: number
+      ytdLateChrgPaid: number
+      ytdAccrdLateChrg: number
+      ytdInsPaid: number
+      ytdPrinPaid: number
+      ytdTaxPaid: number
+      ytdMnthPmiPaid: number
+      ytdIoePaid: number
+
+      
+
+ 
+
+
+
+
+
+
+
+  
+  
+     
+  
+
+
+
+  
+
+  
+  
+     
+  
+
+
+
+  
